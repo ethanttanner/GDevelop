@@ -1075,6 +1075,7 @@ storiesOf('EventsSheet', module)
           setToolbar={() => {}}
           showNetworkPreviewButton={false}
           showPreviewButton={false}
+          openInstructionOrExpression={action('open instruction or expression')}
         />
       </div>
     </DragDropContextProvider>
@@ -1101,6 +1102,7 @@ storiesOf('EventsSheet', module)
           setToolbar={() => {}}
           showNetworkPreviewButton={false}
           showPreviewButton={false}
+          openInstructionOrExpression={action('open instruction or expression')}
         />
       </div>
     </DragDropContextProvider>
@@ -1803,6 +1805,7 @@ storiesOf('EventsFunctionsExtensionEditor/index', module)
             action('Choose resource from source', source)
           }
           resourceExternalEditors={[]}
+          openInstructionOrExpression={action('open instruction or expression')}
         />
       </div>
     </DragDropContextProvider>

@@ -787,6 +787,7 @@ class MainFrame extends React.Component<Props, State> {
           resourceSources={this.props.resourceSources}
           onChooseResource={this._onChooseResource}
           resourceExternalEditors={this.props.resourceExternalEditors}
+          openInstructionOrExpression={this._openInstructionOrExpression}
           isActive={isActive}
           ref={editorRef}
         />
@@ -828,6 +829,7 @@ class MainFrame extends React.Component<Props, State> {
               resourceSources={this.props.resourceSources}
               onChooseResource={this._onChooseResource}
               resourceExternalEditors={this.props.resourceExternalEditors}
+              openInstructionOrExpression={this._openInstructionOrExpression}
               isActive={isActive}
               ref={editorRef}
             />
@@ -893,6 +895,7 @@ class MainFrame extends React.Component<Props, State> {
               onReloadEventsFunctionsExtensions={
                 this._loadProjectEventsFunctionsExtensions
               }
+              openInstructionOrExpression={this._openInstructionOrExpression}
               ref={editorRef}
             />
           ),
@@ -990,6 +993,17 @@ class MainFrame extends React.Component<Props, State> {
       () => this.updateToolbar()
     );
   };
+
+  _openInstructionOrExpression = (extension: gdPlatformExtension, type: string) => {
+    const { currentProject } = this.state;
+    if (!currentProject) return;
+
+    const extensionName = extension.getName();
+    if (currentProject.hasEventsFunctionsExtensionNamed(extensionName)) {
+      this.openEventsFunctionsExtension(extensionName);
+      //TODO type
+    }
+  }
 
   openCreateDialog = (open: boolean = true) => {
     this.setState({

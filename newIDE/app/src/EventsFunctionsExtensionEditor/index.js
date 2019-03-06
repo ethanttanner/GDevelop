@@ -27,6 +27,10 @@ type Props = {|
   resourceSources: Array<ResourceSource>,
   onChooseResource: ChooseResourceFunction,
   resourceExternalEditors: Array<ResourceExternalEditor>,
+  openInstructionOrExpression: (
+    extension: gdPlatformExtension,
+    type: string
+  ) => void,
 |};
 
 type State = {|
@@ -205,6 +209,7 @@ export default class EventsFunctionsExtensionEditor extends React.Component<
                       resourceExternalEditors={
                         this.props.resourceExternalEditors
                       }
+                      openInstructionOrExpression={this.props.openInstructionOrExpression}
                       setToolbar={this.props.setToolbar}
                       onOpenDebugger={() => {}}
                     />

@@ -82,6 +82,10 @@ type Props = {|
   resourceSources: Array<ResourceSource>,
   onChooseResource: ChooseResourceFunction,
   resourceExternalEditors: Array<ResourceExternalEditor>,
+  openInstructionOrExpression: (
+    extension: gdPlatformExtension,
+    type: string
+  ) => void,
 |};
 type State = {|
   history: HistoryState,
@@ -1064,6 +1068,7 @@ export default class EventsSheet extends React.Component<Props, State> {
                 resourceSources={this.props.resourceSources}
                 onChooseResource={this.props.onChooseResource}
                 resourceExternalEditors={this.props.resourceExternalEditors}
+                openInstructionOrExpression={this.props.openInstructionOrExpression}
               />
             )}
             {this.state.eventsContextAnalyzerOpen &&
